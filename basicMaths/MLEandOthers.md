@@ -33,3 +33,27 @@ $P(x|\theta)$
 + 例：正态分布![img](https://pic4.zhimg.com/80/v2-3013acd0b128bcc29cd4a4258f9bc6e7_720w.jpg)可利用此方法求解未知数**![[公式]](https://www.zhihu.com/equation?tex=%5Cmu)和![[公式]](https://www.zhihu.com/equation?tex=%5Csigma+)**
 
 + 前提：**所有的采样都是独立同分布的**
+
+最大似然估计是求参数θ, 使似然函数P(x0|θ)最大。
+
+例：拿硬币抛了10次，得到的数据（x0）是：反正正正正反正正正反。我们想求的正面概率θθ是模型参数，而抛硬币模型我们可以假设是 [二项分布](https://en.wikipedia.org/wiki/Binomial_distribution)。
+
+似然函数：$f(x_0 ,\theta) = (1-\theta)\times\theta\times\theta\times\theta\times\theta\times(1-\theta)\times\theta\times\theta\times\theta\times(1-\theta) = \theta ^ 7(1 - \theta)^3 = f(\theta)$
+
+函数取最大值时，得到估计的概率(0.7)
+
+### 最大后验概率估计(MAP)
+
+利用贝叶斯公式，检验估计的合理性。
+
+后验概率： $P(\theta|x_0) = \frac{P(x_0|\theta)P(\theta)}{P(x_0)}=\frac{P(x_0|\theta)P(\theta)}{P(x_0|\theta)P(\theta) + P(x_0|\sim \theta)P(\sim \theta)}$      假设“投10次硬币”是一次实验，实验做了1000次，“反正正正正反正正正反”出现了n次，则P(x0)=n/1000。总之，这是一个可以由数据集得到的值）
+
+使此公式取最大值时，不仅似然函数大，参数（$\theta$）出现的概率也得大，从而保障估计的准确性
+
+对于投硬币的例子来看，我们（”先验地知道“）θ取0.5的概率很大，取其他值的概率小一些。我们用一个高斯分布来具体描述我们掌握的这个先验知识，例如假设P(θ)为均值0.5，方差0.1的高斯函数(正态分布)
+
+一个合理的先验概率假设是很重要的。（通常，先验概率能从数据中直接分析得到）
+
+### 总结
+
+MAP就是多个作为因子的先验概率P(θ)。或者，也可以反过来，认为MLE是把先验概率P(θ)认为等于1，即认为θ是均匀分布。
