@@ -36,7 +36,7 @@ $P(x|\theta)$
 
 最大似然估计是求参数θ, 使似然函数P(x0|θ)最大。
 
-例：拿硬币抛了10次，得到的数据（x0）是：反正正正正反正正正反。我们想求的正面概率θθ是模型参数，而抛硬币模型我们可以假设是 [二项分布](https://en.wikipedia.org/wiki/Binomial_distribution)。
+例：拿硬币抛了10次，得到的数据（x0）是：反正正正正反正正正反。我们想求的正面概率θ是模型参数，而抛硬币模型我们可以假设是 [二项分布](https://en.wikipedia.org/wiki/Binomial_distribution)。
 
 似然函数：$f(x_0 ,\theta) = (1-\theta)\times\theta\times\theta\times\theta\times\theta\times(1-\theta)\times\theta\times\theta\times\theta\times(1-\theta) = \theta ^ 7(1 - \theta)^3 = f(\theta)$
 
